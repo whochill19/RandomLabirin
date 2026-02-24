@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://cudadjxidixv4"]
+
+[ext_resource type="Script" uid="uid://dg568n6aha1bc" path="res://Main/Util/main_menu.gd" id="1_l61sj"]
+[ext_resource type="Texture2D" uid="uid://djbt8xolqw3vx" path="res://Main/Assets/background-gradient.svg" id="1_x2a1r"]
+[ext_resource type="Theme" uid="uid://f7agl028cil0" path="res://Main/Assets/Theme/MainMenu.theme" id="3_j3qxl"]
+[ext_resource type="FontFile" uid="uid://bpsxw8xm0du5l" path="res://Main/Assets/Font/PixelifySans-VariableFont_wght.ttf" id="4_k5ant"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l61sj")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_x2a1r")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("3_j3qxl")
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.011087579, 0.011087578, 0.01108758, 1)
+theme_override_fonts/font = ExtResource("4_k5ant")
+theme_override_font_sizes/font_size = 64
+text = "RandomWalker"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 40
+theme_override_fonts/font = ExtResource("4_k5ant")
+text = "Main"
+
+[node name="DifficultyDropdown" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_k5ant")
+item_count = 1
+popup/item_0/id = 0
+
+[node name="LeaderBoardButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_k5ant")
+text = "LeaderBoard
+"
+
+[node name="SettingButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_k5ant")
+text = "Settings
+"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_k5ant")
+text = "Keluar"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LeaderBoardButton" to="." method="_on_leaderboard_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsas5gc16l4k"]
+
+[ext_resource type="TileSet" uid="uid://bhp6nmd55syrf" path="res://Main/Assets/tileset.tres" id="1_ga5ph"]
+[ext_resource type="Script" uid="uid://cdnkqtc8b6f2f" path="res://Main/Systems/LevelChunk/level.gd" id="1_qvvu4"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_qvvu4")
+
+[node name="TileMapMain" type="TileMap" parent="."]
+tile_set = ExtResource("1_ga5ph")
+format = 2
+
+[node name="TileMapDanger" type="TileMap" parent="."]
+tile_set = ExtResource("1_ga5ph")
+format = 2
+
+[node name="TileMapFinish" type="TileMap" parent="."]
+tile_set = ExtResource("1_ga5ph")
+format = 2
+
+[node name="Extra" type="Node2D" parent="."]

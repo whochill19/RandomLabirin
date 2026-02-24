@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfx0ln4r6t107"]
+
+[ext_resource type="Script" uid="uid://1wjvr3xvsoed" path="res://Main/main.gd" id="1_ps1la"]
+[ext_resource type="PackedScene" uid="uid://cudadjxidixv4" path="res://Main/Util/MainMenu.tscn" id="2_83ytx"]
+[ext_resource type="PackedScene" uid="uid://cbgogwbqh0yov" path="res://Main/Util/Leaderboard.tscn" id="2_amygn"]
+[ext_resource type="PackedScene" uid="uid://cltprpwri8ckv" path="res://Main/Util/SettingMenu.tscn" id="3_amygn"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ps1la")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_83ytx")]
+layout_mode = 1
+
+[node name="Leaderboard" parent="." instance=ExtResource("2_amygn")]
+layout_mode = 1
+
+[node name="SettingMenu" parent="." instance=ExtResource("3_amygn")]
+layout_mode = 1
+
+[connection signal="buka_leaderboard" from="MainMenu" to="." method="tampilkan_leaderboard"]
+[connection signal="buka_setting" from="MainMenu" to="." method="tampilkan_setting"]
+[connection signal="kembali_ke_menu" from="Leaderboard" to="." method="tampilkan_menu_utama"]
+[connection signal="kembali_ke_menu" from="SettingMenu" to="." method="tampilkan_menu_utama"]

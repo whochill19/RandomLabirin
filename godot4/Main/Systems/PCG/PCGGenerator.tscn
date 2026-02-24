@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://cnsquno7ynhnt"]
+
+[ext_resource type="Script" uid="uid://bwfbsy5mi174v" path="res://Main/Systems/PCG/pcg_generator.gd" id="1_k78uw"]
+[ext_resource type="PackedScene" uid="uid://dsas5gc16l4k" path="res://Main/Systems/LevelChunk/Level.tscn" id="1_o6ih6"]
+[ext_resource type="Script" uid="uid://dtyj00e3klqu3" path="res://Main/Systems/LevelManager/PSOSearch.gd" id="2_2tog8"]
+[ext_resource type="Texture2D" uid="uid://djbt8xolqw3vx" path="res://Main/Assets/background-gradient.svg" id="2_o6ih6"]
+[ext_resource type="Texture2D" uid="uid://bie1eywwutt3v" path="res://Main/Assets/background-trees.svg" id="3_a4joj"]
+[ext_resource type="Script" uid="uid://ii3k1l4mgqlm" path="res://Main/Systems/LevelManager/Camera2D.gd" id="4_2tog8"]
+[ext_resource type="Texture2D" uid="uid://c4deb21m8tfnx" path="res://Main/Assets/background-hills.svg" id="4_k78uw"]
+[ext_resource type="PackedScene" uid="uid://dxkkq70eurncp" path="res://Main/Util/GameHUD.tscn" id="8_na2jx"]
+
+[node name="PcgGenerator" type="Node2D"]
+script = ExtResource("1_k78uw")
+
+[node name="PSOSearch" type="Node" parent="." groups=["mandor_pso"]]
+process_mode = 3
+script = ExtResource("2_2tog8")
+generator_path = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("4_2tog8")
+
+[node name="Level" parent="." instance=ExtResource("1_o6ih6")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
+autostart = true
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_o6ih6")
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayerTrees" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerTrees"]
+texture_repeat = 2
+texture = ExtResource("3_a4joj")
+region_enabled = true
+region_rect = Rect2(0, 0, 7980, 1200)
+
+[node name="ParallaxLayerHills" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.25, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerHills"]
+texture_repeat = 2
+texture = ExtResource("4_k78uw")
+region_enabled = true
+region_rect = Rect2(0, 0, 7200, 1400)
+
+[node name="GameHud" parent="." instance=ExtResource("8_na2jx")]
+
+[connection signal="level_completed" from="." to="Camera2D" method="_on_LevelGenerator_level_completed"]
+[connection signal="zoom_changed" from="Camera2D" to="." method="_on_Camera2D_zoom_changed"]

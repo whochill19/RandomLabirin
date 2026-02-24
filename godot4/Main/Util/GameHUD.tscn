@@ -1,0 +1,184 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxkkq70eurncp"]
+
+[ext_resource type="Script" uid="uid://dk1x0r2t4a4xn" path="res://Main/Util/game_hud.gd" id="1_vm0ic"]
+[ext_resource type="FontFile" uid="uid://bpsxw8xm0du5l" path="res://Main/Assets/Font/PixelifySans-VariableFont_wght.ttf" id="2_364io"]
+[ext_resource type="Texture2D" uid="uid://djbt8xolqw3vx" path="res://Main/Assets/background-gradient.svg" id="2_y80mr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_364io"]
+bg_color = Color(0, 0, 0, 0.94509804)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vm0ic"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y80mr"]
+bg_color = Color(0, 0, 0, 0.5137255)
+
+[sub_resource type="Theme" id="Theme_364io"]
+Label/styles/focus = SubResource("StyleBoxFlat_vm0ic")
+Label/styles/normal = SubResource("StyleBoxFlat_y80mr")
+
+[node name="GameHud" type="CanvasLayer"]
+script = ExtResource("1_vm0ic")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopLeftMargin" type="MarginContainer" parent="Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="Control/TopLeftMargin"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_364io")
+
+[node name="LoadingScreen" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_y80mr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/LoadingScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/LoadingScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_364io")
+theme_override_font_sizes/font_size = 64
+text = "Loading...."
+
+[node name="LoadingBar" type="ProgressBar" parent="Control/LoadingScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_364io")
+theme_override_styles/fill = SubResource("StyleBoxFlat_364io")
+
+[node name="BottomRightMargin" type="MarginContainer" parent="Control"]
+layout_mode = 1
+offset_right = 41.0
+offset_bottom = 63.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="DebugLabel" type="Label" parent="Control/BottomRightMargin"]
+layout_mode = 2
+theme = SubResource("Theme_364io")
+theme_override_fonts/font = ExtResource("2_364io")
+
+[node name="GameOverScreen" type="ColorRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.7058824)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/GameOverScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/GameOverScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_364io")
+theme_override_font_sizes/font_size = 64
+text = "GAME OVER"
+
+[node name="RestartButton" type="Button" parent="Control/GameOverScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_364io")
+text = "Coba Lagi"
+
+[node name="MenuButton" type="Button" parent="Control/GameOverScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_364io")
+text = "Kembali ke Menu Utama"
+
+[node name="PauseMenu" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = -68.0
+offset_right = 90.5
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Control/PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_364io")
+text = "Lanjut Main"
+
+[node name="RestartPauseButton" type="Button" parent="Control/PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_364io")
+text = "Ulang Level"
+
+[node name="MenuPauseButton" type="Button" parent="Control/PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_364io")
+text = "Kembali ke MainMenu"
+
+[node name="QuitButton" type="Button" parent="Control/PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_364io")
+text = "Keluar dari Game"
+
+[connection signal="pressed" from="Control/GameOverScreen/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/GameOverScreen/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Control/PauseMenu/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/PauseMenu/VBoxContainer/RestartPauseButton" to="." method="_on_restart_pause_button_pressed"]
+[connection signal="pressed" from="Control/PauseMenu/VBoxContainer/MenuPauseButton" to="." method="_on_menu_pause_button_pressed"]
+[connection signal="pressed" from="Control/PauseMenu/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

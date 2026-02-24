@@ -1,0 +1,181 @@
+[gd_scene load_steps=5 format=3 uid="uid://cltprpwri8ckv"]
+
+[ext_resource type="Script" uid="uid://blwi040o64vck" path="res://Main/Util/setting_menu.gd" id="1_ssxfr"]
+[ext_resource type="Texture2D" uid="uid://djbt8xolqw3vx" path="res://Main/Assets/background-gradient.svg" id="1_v10k8"]
+[ext_resource type="FontFile" uid="uid://bpsxw8xm0du5l" path="res://Main/Assets/Font/PixelifySans-VariableFont_wght.ttf" id="3_4mr6u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssxfr"]
+bg_color = Color(0.1716153, 0.397261, 0.4188676, 0.6784314)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 5
+
+[node name="SettingMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ssxfr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_v10k8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.5
+offset_top = -149.0
+offset_right = 239.5
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ssxfr")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="JudulPengaturan" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4mr6u")
+theme_override_font_sizes/font_size = 32
+text = "Pengaturan"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ParameterPSO" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="JudulPSO" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ParameterPSO"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4mr6u")
+text = "--- Parameter PSO ---"
+
+[node name="LabelW" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ParameterPSO"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4mr6u")
+
+[node name="SliderW" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ParameterPSO"]
+layout_mode = 2
+min_value = 0.1
+max_value = 1.0
+step = 0.1
+value = 0.1
+
+[node name="LabelC1" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ParameterPSO"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4mr6u")
+
+[node name="SliderC1" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ParameterPSO"]
+layout_mode = 2
+min_value = 0.5
+max_value = 2.5
+step = 0.1
+value = 0.5
+
+[node name="LabelC2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ParameterPSO"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4mr6u")
+
+[node name="SliderC2" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ParameterPSO"]
+layout_mode = 2
+min_value = 0.5
+max_value = 2.5
+step = 0.1
+value = 0.5
+
+[node name="LabelPartikel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ParameterPSO"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4mr6u")
+
+[node name="SliderPartikel" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ParameterPSO"]
+layout_mode = 2
+min_value = 1.0
+max_value = 20.0
+value = 1.0
+
+[node name="LabelIterasi" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ParameterPSO"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4mr6u")
+
+[node name="SliderIterasi" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ParameterPSO"]
+layout_mode = 2
+min_value = 1.0
+max_value = 20.0
+value = 1.0
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Control & Sistem" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="JudulKontrol" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Control & Sistem"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4mr6u")
+text = "--- Kontrol Game ---"
+
+[node name="TeksKontrol" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Control & Sistem"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4mr6u")
+text = " A / Panah Kiri = Bergerak Kiri
+D / Panah Kanan = Bergerak Kanan
+Space / W = Lompat
+ESC = Pause Game
+H = Sembunyikan Info HUD---"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Control & Sistem"]
+layout_mode = 2
+
+[node name="LabelFullscreen" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Control & Sistem/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4mr6u")
+text = "Layar Penuh"
+
+[node name="FullscreenToggle" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Control & Sistem/HBoxContainer"]
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Control & Sistem"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4mr6u")
+text = "Kembali ke Menu"
+
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ParameterPSO/SliderW" to="." method="_on_slider_w_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ParameterPSO/SliderC1" to="." method="_on_slider_c1_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ParameterPSO/SliderC2" to="." method="_on_slider_c2_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ParameterPSO/SliderPartikel" to="." method="_on_slider_partikel_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ParameterPSO/SliderIterasi" to="." method="_on_slider_iterasi_value_changed"]
+[connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Control & Sistem/HBoxContainer/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Control & Sistem/QuitButton" to="." method="_on_kembali_button_pressed"]

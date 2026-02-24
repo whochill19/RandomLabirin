@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxvnjl3gvgm08"]
+
+[ext_resource type="Script" uid="uid://dleoaskft8smx" path="res://Main/Entities/Player.gd" id="1_ktve3"]
+[ext_resource type="Texture2D" uid="uid://c2ml0hr3pf64n" path="res://Main/Assets/tiles.svg" id="2_ktve3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mbl4j"]
+radius = 12.0
+height = 60.0
+
+[sub_resource type="CapsuleShape2D" id="2"]
+radius = 15.0
+height = 55.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 0
+script = ExtResource("1_ktve3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ktve3")
+offset = Vector2(0, -30)
+region_enabled = true
+region_rect = Rect2(300, 240, 30, 60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -30)
+shape = SubResource("CapsuleShape2D_mbl4j")
+
+[node name="DangerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DangerDetector"]
+position = Vector2(0, -30)
+shape = SubResource("2")
+
+[node name="FinishDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishDetector"]
+position = Vector2(0, -30)
+shape = SubResource("2")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+
+[connection signal="body_entered" from="DangerDetector" to="." method="_on_DangerDetector_body_entered"]
+[connection signal="body_entered" from="FinishDetector" to="." method="_on_finish_detector_body_entered"]
