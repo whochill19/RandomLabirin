@@ -14,11 +14,11 @@ var _resolution := Vector2.ZERO
 
 func _on_LevelGenerator_level_completed(player_position: Vector2) -> void:
 	await get_tree().create_timer(TIME_START).timeout
-	var tween = create_tween()
-	tween.tween_property(self, "zoom", TARGET_ZOOM, TIME_TWEEN).set_delay(0.2)
-	tween.parallel().tween_method(_on_Tween_tween_step, zoom, TARGET_ZOOM,TIME_TWEEN)
-	tween.parallel().tween_property(self, "position", player_position, TIME_TWEEN).set_trans(Tween.TRANS_QUAD)
-	tween.connect("finished", get_parent()._on_Tween_tween_all_completed)
+	#var tween = create_tween()
+	#tween.tween_property(self, "zoom", TARGET_ZOOM, TIME_TWEEN).set_delay(0.2)
+	#tween.parallel().tween_method(_on_Tween_tween_step, zoom, TARGET_ZOOM,TIME_TWEEN)
+	#tween.parallel().tween_property(self, "position", player_position, TIME_TWEEN).set_trans(Tween.TRANS_QUAD)
+	#tween.connect("finished", get_parent()._on_Tween_tween_all_completed)
 
 
 func _on_Tween_tween_step(zoom: Vector2) -> void:

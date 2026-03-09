@@ -255,7 +255,7 @@ func hitung_fitness_berdasarkan_kesulitan(path_data: Array, peluang_musuh: float
 
 	var panjang_jalur = path_data.size()
 
-	# 1. TENTUKAN TARGET BERDASARKAN KESULITAN
+
 	# 1. TENTUKAN TARGET BERDASARKAN KESULITAN DARI GLOBAL
 	match kesulitan_sekarang:
 		Global.TingkatKesulitan.EASY:

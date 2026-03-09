@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Procedural Generation Demos"
+config/name="RandomLabirin"
 config/description="Implementations and demos of procedural generation algorithms."
 run/main_scene="uid://cfx0ln4r6t107"
 config/features=PackedStringArray("4.5")

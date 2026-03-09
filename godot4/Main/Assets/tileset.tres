@@ -1,11 +1,10 @@
-[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://bhp6nmd55syrf"]
+[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://bhp6nmd55syrf"]
 
-[ext_resource type="Texture2D" uid="uid://cqv8s40eawu7i" path="res://RandomWalker/Levels/tiles.svg" id="1_hng61"]
 [ext_resource type="Texture2D" uid="uid://c2ml0hr3pf64n" path="res://Main/Assets/tiles.svg" id="2_8tkdq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e4bvo"]
 resource_name = "Ground"
-texture = ExtResource("1_hng61")
+texture = ExtResource("2_8tkdq")
 texture_region_size = Vector2i(60, 60)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -106,7 +105,7 @@ texture_region_size = Vector2i(60, 60)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j67lp"]
 resource_name = "Vegetation"
-texture = ExtResource("1_hng61")
+texture = ExtResource("2_8tkdq")
 margins = Vector2i(180, 0)
 texture_region_size = Vector2i(60, 60)
 0:0/0 = 0
@@ -140,7 +139,7 @@ texture_region_size = Vector2i(60, 60)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bpc0t"]
 resource_name = "RealTreasure"
-texture = ExtResource("1_hng61")
+texture = ExtResource("2_8tkdq")
 margins = Vector2i(300, 180)
 texture_region_size = Vector2i(60, 60)
 0:0/0 = 0
@@ -157,7 +156,7 @@ texture_region_size = Vector2i(30, 60)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_txhc0"]
 resource_name = "Spike"
-texture = ExtResource("1_hng61")
+texture = ExtResource("2_8tkdq")
 margins = Vector2i(180, 60)
 texture_region_size = Vector2i(60, 60)
 0:0/0 = 0
@@ -167,7 +166,7 @@ texture_region_size = Vector2i(60, 60)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qkhca"]
 resource_name = "MaybeGround"
-texture = ExtResource("1_hng61")
+texture = ExtResource("2_8tkdq")
 margins = Vector2i(180, 120)
 texture_region_size = Vector2i(60, 60)
 0:0/0 = 0
@@ -175,7 +174,7 @@ texture_region_size = Vector2i(60, 60)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mhwpw"]
 resource_name = "MaybeBush"
-texture = ExtResource("1_hng61")
+texture = ExtResource("2_8tkdq")
 margins = Vector2i(240, 120)
 texture_region_size = Vector2i(60, 60)
 0:0/0 = 0
@@ -185,7 +184,7 @@ texture_region_size = Vector2i(60, 60)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mouyy"]
 resource_name = "MaybeTree"
-texture = ExtResource("1_hng61")
+texture = ExtResource("2_8tkdq")
 margins = Vector2i(180, 180)
 texture_region_size = Vector2i(120, 120)
 0:0/0 = 0
@@ -195,7 +194,7 @@ texture_region_size = Vector2i(120, 120)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k6rjm"]
 resource_name = "MaybeSpike"
-texture = ExtResource("1_hng61")
+texture = ExtResource("2_8tkdq")
 margins = Vector2i(300, 120)
 texture_region_size = Vector2i(60, 60)
 0:0/0 = 0
@@ -205,7 +204,7 @@ texture_region_size = Vector2i(60, 60)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mneq7"]
 resource_name = "RealBush"
-texture = ExtResource("1_hng61")
+texture = ExtResource("2_8tkdq")
 margins = Vector2i(180, 0)
 texture_region_size = Vector2i(60, 60)
 0:0/0 = 0
@@ -213,7 +212,7 @@ texture_region_size = Vector2i(60, 60)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jdaiu"]
 resource_name = "RealTree"
-texture = ExtResource("1_hng61")
+texture = ExtResource("2_8tkdq")
 margins = Vector2i(240, 0)
 texture_region_size = Vector2i(120, 120)
 0:0/0 = 0
@@ -221,7 +220,7 @@ texture_region_size = Vector2i(120, 120)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0yy82"]
 resource_name = "MaybeTreasure"
-texture = ExtResource("1_hng61")
+texture = ExtResource("2_8tkdq")
 margins = Vector2i(300, 180)
 texture_region_size = Vector2i(60, 60)
 0:0/0 = 0
