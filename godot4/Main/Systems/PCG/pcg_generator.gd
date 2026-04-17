@@ -91,6 +91,7 @@ func generate_level(custom_seed: int = -1) -> void:
 	_update_start_position()
 
 	var safety_break = 0
+	var is_success = true # Variabel penampung status
 
 	while _state.offset.y < grid_size.y:
 		_update_room_type()
@@ -101,6 +102,7 @@ func generate_level(custom_seed: int = -1) -> void:
 		safety_break += 1
 		if safety_break > 500: # Jika sudah jalan 500 langkah tapi belum sampai bawah
 			push_error("ERROR: Walker terjebak dalam Infinite Loop! Memaksa berhenti.")
+			is_success = false # Tandai gagal jika terjebak
 			break # Paksa keluar dari loop agar game tidak crash
 
 	_place_walls()
@@ -112,12 +114,18 @@ func generate_level(custom_seed: int = -1) -> void:
 	# Letakkan pintu terakhir
 	_place_door()
 
+	# Cek apakah pintu benar-benar ada
+	if level_extra.get_child_count() == 0:
+		is_success = false
+
 	# KUNCI UTAMA: Teriakkan signal "SELESAI" dan kirimkan posisi Player ke Kamera!
 	if _player != null:
 		level_completed.emit(_player.position)
 	else:
 		# Jaga-jaga agar tidak crash kalau player belum ter-spawn
 		level_completed.emit(Vector2.ZERO)
+
+	is_success
 
 # Pastikan fungsi ini ada untuk memberikan data ke PSO
 func get_path_data() -> Array:

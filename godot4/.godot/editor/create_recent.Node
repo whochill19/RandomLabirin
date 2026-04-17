@@ -1,3 +1,5 @@
+Node
+PSOManager
 Label
 VBoxContainer
 MarginContainer
@@ -10,5 +12,3 @@ HSlider
 ColorRect
 TextureRect
 Control
-Node
-OptionButton

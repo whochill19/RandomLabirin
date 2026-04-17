@@ -26,7 +26,7 @@ func evaluate_level_fitness(path_data: Array) -> float:
 	return score
 
 func get_best_iteration(generator_node) -> Dictionary:
-	best_global_score = -999.0
+	best_global_score = self.best_global_score
 	var final_best_path = []
 
 	for iter in range(iterations):

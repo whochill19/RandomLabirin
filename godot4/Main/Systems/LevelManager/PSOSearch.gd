@@ -38,19 +38,19 @@ func _ready():
 func atur_parameter_pso():
 	match kesulitan_sekarang:
 		Global.TingkatKesulitan.EASY:
-			iterasi_maksimal = 3
-			jumlah_partikel = 3 # Ingat, minimal 3 agar seed bisa bergerak
+			iterasi_maksimal = 5
+			jumlah_partikel = 10 # Ingat, minimal 3 agar seed bisa bergerak
 			generator.grid_size = Vector2(5, 5) # Map kecil
 
 		Global.TingkatKesulitan.MEDIUM:
 			iterasi_maksimal = 5
-			jumlah_partikel = 5
+			jumlah_partikel = 10
 			generator.grid_size = Vector2(8, 6) # Map sedang
 
 		Global.TingkatKesulitan.HARD:
-			iterasi_maksimal = 7
-			jumlah_partikel = 8
-			generator.grid_size = Vector2(12, 10) # Map besar
+			iterasi_maksimal = 5
+			jumlah_partikel = 10
+			generator.grid_size = Vector2(16, 14) # Map besar
 
 		Global.TingkatKesulitan.EXTREME:
 			iterasi_maksimal = 10
@@ -59,7 +59,7 @@ func atur_parameter_pso():
 
 func inisialisasi_partikel():
 	kawanan_partikel.clear()
-	skor_terbaik_global = -999.0
+	skor_terbaik_global = 1.0
 	seed_terbaik_global = 0
 	musuh_terbaik_global = 0.0
 
@@ -75,7 +75,7 @@ func inisialisasi_partikel():
 			"peluang_musuh": randf(),
 			"v_musuh": 0.0,
 			"pbest_musuh": 0.0,
-			"pbest_skor": -999.0
+			"pbest_skor": 1.0
 		}
 		kawanan_partikel.append(partikel)
 
